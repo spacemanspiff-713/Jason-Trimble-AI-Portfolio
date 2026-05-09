@@ -55,5 +55,4 @@ This course helped me better understand how computer vision systems are built fr
 ## Contact
 
 - GitHub: https://github.com/spacemanspiff-713
-- LinkedIn: Add your LinkedIn URL here
-- Email: Add preferred professional email here
+- LinkedIn: https://www.linkedin.com/in/jason-trimble-2b510796/
