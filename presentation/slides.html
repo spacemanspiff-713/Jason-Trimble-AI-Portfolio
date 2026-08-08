@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jason Trimble — ITAI 2372 Portfolio</title>
+<style>
+  @page {
+    size: 1920px 1080px;
+    margin: 0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+  }
+
+  .slide {
+    width: 1920px;
+    height: 1080px;
+    padding: 80px 100px;
+    display: flex;
+    flex-direction: column;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle at bottom right, rgba(59,130,246,0.08), transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Slide 1 — Intro */
+  .slide-1 {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .slide-1 .accent-line {
+    width: 120px; height: 4px;
+    background: #3b82f6;
+    margin-bottom: 40px;
+    border-radius: 2px;
+  }
+
+  .slide-1 h1 {
+    font-size: 72px;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+  }
+
+  .slide-1 .title {
+    font-size: 32px;
+    font-weight: 400;
+    color: #3b82f6;
+    margin-bottom: 48px;
+  }
+
+  .slide-1 .expertise {
+    font-size: 26px;
+    color: #94a3b8;
+    max-width: 900px;
+    line-height: 1.6;
+  }
+
+  .slide-1 .expertise strong {
+    color: #e2e8f0;
+  }
+
+  .slide-1 .footer {
+    position: absolute;
+    bottom: 60px;
+    left: 100px;
+    font-size: 20px;
+    color: #64748b;
+  }
+
+  /* Slide 2 — KidMood */
+  .slide-2 {
+    background: linear-gradient(135deg, #0f172a 0%, #172033 100%);
+  }
+
+  .slide-2 .slide-number {
+    font-size: 18px;
+    color: #3b82f6;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+
+  .slide-2 h2 {
+    font-size: 52px;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 8px;
+  }
+
+  .slide-2 .subtitle {
+    font-size: 24px;
+    color: #64748b;
+    margin-bottom: 48px;
+  }
+
+  .slide-2 .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    flex: 1;
+  }
+
+  .slide-2 .col h3 {
+    font-size: 22px;
+    color: #3b82f6;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+
+  .slide-2 .col p, .slide-2 .col li {
+    font-size: 22px;
+    color: #cbd5e1;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .slide-2 .col ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .slide-2 .col ul li::before {
+    content: '▸';
+    color: #3b82f6;
+    margin-right: 12px;
+  }
+
+  .slide-2 .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .slide-2 .tech-tag {
+    background: rgba(59,130,246,0.15);
+    color: #93c5fd;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 17px;
+    border: 1px solid rgba(59,130,246,0.25);
+  }
+
+  .slide-2 .project-box {
+    background: rgba(30,41,59,0.6);
+    border: 1px solid rgba(59,130,246,0.2);
+    border-radius: 16px;
+    padding: 36px;
+    margin-top: 24px;
+  }
+
+  .slide-2 .project-box .metric {
+    font-size: 48px;
+    font-weight: 700;
+    color: #3b82f6;
+  }
+
+  .slide-2 .project-box .metric-label {
+    font-size: 18px;
+    color: #94a3b8;
+  }
+
+  /* Slide 3 — Two Projects */
+  .slide-3 {
+    background: linear-gradient(135deg, #0f172a 0%, #172033 100%);
+  }
+
+  .slide-3 .slide-number {
+    font-size: 18px;
+    color: #3b82f6;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+
+  .slide-3 h2 {
+    font-size: 52px;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 48px;
+  }
+
+  .slide-3 .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    flex: 1;
+  }
+
+  .slide-3 .card {
+    background: rgba(30,41,59,0.5);
+    border: 1px solid rgba(71,85,105,0.3);
+    border-radius: 20px;
+    padding: 44px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slide-3 .card .card-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .slide-3 .card h3 {
+    font-size: 30px;
+    color: #f8fafc;
+    margin-bottom: 12px;
+  }
+
+  .slide-3 .card .card-course {
+    font-size: 18px;
+    color: #3b82f6;
+    margin-bottom: 24px;
+  }
+
+  .slide-3 .card .card-detail {
+    font-size: 20px;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .slide-3 .card .card-result {
+    background: rgba(59,130,246,0.1);
+    border-left: 3px solid #3b82f6;
+    padding: 16px 20px;
+    font-size: 19px;
+    color: #93c5fd;
+    border-radius: 0 8px 8px 0;
+    margin-top: auto;
+  }
+
+  .slide-3 .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .slide-3 .tech-tag {
+    background: rgba(59,130,246,0.12);
+    color: #93c5fd;
+    padding: 4px 14px;
+    border-radius: 16px;
+    font-size: 15px;
+    border: 1px solid rgba(59,130,246,0.2);
+  }
+
+  /* Slide 4 — Real-World Applications */
+  .slide-4 {
+    background: linear-gradient(135deg, #0f172a 0%, #172033 100%);
+  }
+
+  .slide-4 .slide-number {
+    font-size: 18px;
+    color: #3b82f6;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+
+  .slide-4 h2 {
+    font-size: 52px;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 48px;
+  }
+
+  .slide-4 .app-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    flex: 1;
+  }
+
+  .slide-4 .app-card {
+    background: rgba(30,41,59,0.5);
+    border: 1px solid rgba(71,85,105,0.3);
+    border-radius: 20px;
+    padding: 40px;
+  }
+
+  .slide-4 .app-card .app-icon {
+    font-size: 44px;
+    margin-bottom: 20px;
+  }
+
+  .slide-4 .app-card h3 {
+    font-size: 26px;
+    color: #f8fafc;
+    margin-bottom: 16px;
+  }
+
+  .slide-4 .app-card p {
+    font-size: 19px;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .slide-4 .app-card .evidence {
+    font-size: 16px;
+    color: #3b82f6;
+    font-style: italic;
+  }
+
+  .slide-4 .forward {
+    margin-top: 48px;
+    padding: 32px 40px;
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.2);
+    border-radius: 16px;
+    font-size: 22px;
+    color: #cbd5e1;
+    line-height: 1.6;
+  }
+
+  /* Slide 5 — Wrap-Up */
+  .slide-5 {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .slide-5 h2 {
+    font-size: 56px;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 24px;
+  }
+
+  .slide-5 .closing {
+    font-size: 26px;
+    color: #94a3b8;
+    max-width: 800px;
+    line-height: 1.6;
+    margin-bottom: 60px;
+  }
+
+  .slide-5 .repo-box {
+    background: rgba(30,41,59,0.7);
+    border: 2px solid rgba(59,130,246,0.3);
+    border-radius: 16px;
+    padding: 36px 60px;
+    margin-bottom: 48px;
+    display: inline-block;
+  }
+
+  .slide-5 .repo-box .label {
+    font-size: 18px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  .slide-5 .repo-box .url {
+    font-size: 28px;
+    color: #3b82f6;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+
+  .slide-5 .contact-row {
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+    font-size: 22px;
+    color: #94a3b8;
+    margin-bottom: 36px;
+  }
+
+  .slide-5 .contact-row span {
+    color: #64748b;
+  }
+
+  .slide-5 .cert {
+    font-size: 20px;
+    color: #64748b;
+  }
+
+  .slide-5 .cert strong {
+    color: #3b82f6;
+  }
+
+  /* Print */
+  @media print {
+    body { background: #0f172a; }
+    .slide { page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 — Introduction -->
+<div class="slide slide-1">
+  <div class="accent-line"></div>
+  <h1>Jason Trimble</h1>
+  <div class="title">AI Specialist and Web Developer</div>
+  <div class="expertise">
+    Houston Community College — Applied AI &amp; Robotics Program<br><br>
+    Building practical AI systems across <strong>computer vision</strong>,
+    <strong>natural language processing</strong>, and
+    <strong>machine learning</strong> — from emotion recognition models
+    to fraud detection analysis and NLP pipelines.
+  </div>
+  <div class="footer">ITAI 2372 Final Portfolio &nbsp;|&nbsp; August 2026</div>
+</div>
+
+<!-- SLIDE 2 — KidMood Capstone -->
+<div class="slide slide-2">
+  <div class="slide-number">Featured Project</div>
+  <h2>KidMood: Classroom Emotion Recognition</h2>
+  <div class="subtitle">ITAI 1378 — Computer Vision &amp; AI Capstone</div>
+
+  <div class="content-grid">
+    <div class="col">
+      <h3>Problem &amp; Approach</h3>
+      <p>Teachers cannot continuously monitor every student's emotional state. KidMood uses computer vision to classify facial expressions as an assistive awareness tool.</p>
+      <ul>
+        <li>FER-2013 facial expression dataset</li>
+        <li>MobileNetV2 transfer learning</li>
+        <li>4-class classification: Happy, Sad, Angry, Fear</li>
+        <li>Stratified train/validation/test split</li>
+        <li>Baseline CNN for comparison</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Technical Implementation</h3>
+      <div class="tech-tags">
+        <span class="tech-tag">TensorFlow/Keras</span>
+        <span class="tech-tag">MobileNetV2</span>
+        <span class="tech-tag">Transfer Learning</span>
+        <span class="tech-tag">OpenCV</span>
+        <span class="tech-tag">scikit-learn</span>
+        <span class="tech-tag">NumPy</span>
+        <span class="tech-tag">Matplotlib</span>
+      </div>
+      <div class="project-box">
+        <div style="display:flex; gap:48px;">
+          <div>
+            <div class="metric">4</div>
+            <div class="metric-label">Emotion Classes</div>
+          </div>
+          <div>
+            <div class="metric">224×224</div>
+            <div class="metric-label">Input Resolution</div>
+          </div>
+          <div>
+            <div class="metric">Tier 2</div>
+            <div class="metric-label">Transfer Learning</div>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:24px; font-size:18px; color:#64748b;">
+        Full pipeline: data loading → preprocessing → training → evaluation → inference<br>
+        <span style="color:#3b82f6;">github.com/spacemanspiff-713/KidMood-Final-Project</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 3 — Two Featured Projects -->
+<div class="slide slide-3">
+  <div class="slide-number">Course Highlights</div>
+  <h2>AI Applications &amp; Natural Language Processing</h2>
+
+  <div class="two-col">
+    <!-- Fraud Detection -->
+    <div class="card">
+      <div class="card-icon">🏦</div>
+      <h3>AI in Fraud Detection</h3>
+      <div class="card-course">ITAI 2372 — A04 Case Study</div>
+      <div class="card-detail">
+        Analyzed how <strong>JPMorgan Chase</strong> uses machine learning,
+        large language models, entity extraction, and behavioral analytics
+        to detect business email compromise and financial fraud at scale.
+      </div>
+      <div class="tech-tags">
+        <span class="tech-tag">LLMs</span>
+        <span class="tech-tag">Entity Extraction</span>
+        <span class="tech-tag">Behavioral Analytics</span>
+        <span class="tech-tag">Risk Scoring</span>
+      </div>
+      <div class="card-result">
+        Key finding: AI amplifies fraud professionals — it does not replace them.
+        Strongest programs combine AI with validated data, human review, and governance.
+      </div>
+    </div>
+
+    <!-- POS Tagging -->
+    <div class="card">
+      <div class="card-icon">📝</div>
+      <h3>POS Tagging &amp; Sentiment Analysis</h3>
+      <div class="card-course">ITAI 2373 — Lab 05</div>
+      <div class="card-detail">
+        Built an NLP pipeline using <strong>NLTK</strong> and <strong>SpaCy</strong>
+        for part-of-speech tagging, customer service sentiment analysis,
+        urgency detection, and tagger benchmarking across text types.
+      </div>
+      <div class="tech-tags">
+        <span class="tech-tag">NLTK</span>
+        <span class="tech-tag">SpaCy</span>
+        <span class="tech-tag">pandas</span>
+        <span class="tech-tag">matplotlib</span>
+        <span class="tech-tag">seaborn</span>
+      </div>
+      <div class="card-result">
+        Demonstrated that SpaCy provides cleaner broad-category tags for production,
+        while NLTK excels at fine-grained Penn Treebank analysis and speed.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 4 — Real-World Applications -->
+<div class="slide slide-4">
+  <div class="slide-number">Real-World Impact</div>
+  <h2>From Coursework to Industry Application</h2>
+
+  <div class="app-grid">
+    <div class="app-card">
+      <div class="app-icon">🔍</div>
+      <h3>Fraud Detection &amp; Financial Security</h3>
+      <p>Applying ML and LLMs to detect suspicious patterns in payments, emails, and account behavior — reducing financial crime while minimizing false positives.</p>
+      <div class="evidence">← A04: JPMorgan Chase Case Study</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-icon">💬</div>
+      <h3>Customer Intelligence &amp; NLP</h3>
+      <p>Using POS tagging and sentiment analysis to automatically categorize support tickets, detect urgency, and route issues to the right teams.</p>
+      <div class="evidence">← L05: POS Tagging &amp; Sentiment Lab</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-icon">🎯</div>
+      <h3>Computer Vision for Accessibility</h3>
+      <p>Building emotion-aware systems that help teachers, counselors, and caregivers notice when someone may need support — assistive AI, not replacement.</p>
+      <div class="evidence">← KidMood: Emotion Recognition</div>
+    </div>
+  </div>
+
+  <div class="forward">
+    <strong>Transferable skills:</strong> Data preprocessing, model evaluation, responsible AI analysis,
+    technical communication, and end-to-end ML pipeline construction — applicable across
+    finance, healthcare, education, retail, government, and manufacturing.
+  </div>
+</div>
+
+<!-- SLIDE 5 — Wrap-Up -->
+<div class="slide slide-5">
+  <h2>Thank You</h2>
+  <div class="closing">
+    I build AI systems that solve real problems — combining hands-on implementation
+    with thoughtful analysis of technology's impact on people and industries.
+  </div>
+
+  <div class="repo-box">
+    <div class="label">Portfolio Repository</div>
+    <div class="url">github.com/spacemanspiff-713/Jason-Trimble-AI-Portfolio</div>
+  </div>
+
+  <div class="contact-row">
+    <div>✉️ <span>JASON@JASONTRIMBLE.DESIGN</span></div>
+    <div>🔗 <span>linkedin.com/in/jason-trimble-2b510796</span></div>
+  </div>
+
+  <div class="cert">
+    <strong>Microsoft AI-900: Azure AI Fundamentals</strong> — In Progress
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Secrets & credentials
+*.env
+*.secret
+client_secret*.json
+shopify_recovery_codes.txt
+*.pem
+*.key
+
+# Large data & models
+*.h5
+*.keras
+*.pb
+*.ckpt
+data/raw/
+models/trained/
+models/pretrained/
+*.zip
+*.tar.gz
+*.rar
+
+# Dependencies
+node_modules/
+
+# Build artifacts
+*.log
